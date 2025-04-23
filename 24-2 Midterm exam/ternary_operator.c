@@ -8,8 +8,7 @@ int main()
     scanf("%d", &input);
 
     // Use ternary operator
-    output = (input < 0) ? 0 : input;
-    output = (output > 100 ? 100 : output);
+    output = (input > 0) ? ((input > 100) ? 100 : input) : 0;
 
     printf("Result: %d\n", output);
 
