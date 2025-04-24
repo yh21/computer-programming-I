@@ -7,7 +7,7 @@ int main()
     while(1)
     {
     printf("소문자를 입력하시오: ");
-    scanf(" %c", &letter);
+    scanf("%c", &letter);
 
     if (letter == 'Q')
         break;
