@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char key[4] = {0x42, 0x6A, 0x60, 0x6E};
+    char ciphertext[22] = {0x01, 0x4A, 0x30, 0x3C, 0x0D, 0x2D, 0x32, 0x2F, 0x0F, 0x27, 0x29, 0x20, 0x05, 0x4A, 0x2C, 0x2F, 0x0C, 0x2D, 0x35, 0x2F, 0x05, 0x2F};
+    char plaintext[22];
+    int len = strlen(plaintext);
+
+    for (int i = 0; i < 22; i++)
+    {
+        plaintext[i] = ciphertext[i] ^ key[i % 4];
+        printf("%c", plaintext[i]);
+    }
+
+    plaintext[len] = '\0';
+
+    return 0;
+}
