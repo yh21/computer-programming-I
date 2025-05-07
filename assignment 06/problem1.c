@@ -8,7 +8,7 @@ int main()
     unsigned char encrypted[101];
     unsigned char decrypted[101];
     printf("Input message: ");
-    scanf("%s", message);
+    scanf(" %[^\n]s", message);
 
     int len = strlen(message);
 
