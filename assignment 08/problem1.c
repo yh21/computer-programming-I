@@ -15,7 +15,8 @@ int main()
     len = strlen(str);
 
     // Print reversed string
-    for (int i  = len; i >= 0; i--)
+    printf("Reversed: ");
+    for (i  = len - 1; i >= 0; i--)
         printf("%c", str[i]);
 
     return 0;
