@@ -1,50 +1,56 @@
 #include <stdio.h>
-#include <math.h>  // for sqrt() function
+#include <math.h>
 
-// Define a 2D point using typedef
-typedef struct point{
+// Define a structure to represent a point in 2D space
+typedef struct {
     double x;
     double y;
 } Point;
 
-// Define a triangle using three points
-typedef struct triangle{
-    Point p1;
-    Point p2;
-    Point p3;
-} Triangle;
+// Define a structure to represent a circle
+typedef struct {
+    Point center;    // Center of the circle
+    double radius;    // Radius of the circle
+} Circle;
 
-// Calculate the Euclidean distance between two points
-double distance(Point p1, Point p2) {
-    double dis = sqrt((p2.x-p1.x) * (p2.x-p1.x) + (p2.y-p1.y) * (p2.y-p1.y));
-    return dis;
+// Function to calculate the area of a circle
+double calculateArea(Circle c) {
+    double area = c.radius * c.radius * M_PI;
+    return area;
 }
 
-// Calculate the area of a triangle using Heron's formula
-double calculate_area(Triangle t) {
-    double side1 = distance(t.p1, t.p2);  // Length of side AB
-    double side2 = distance(t.p2, t.p3);  // Length of side BC
-    double side3 = distance(t.p3, t.p1);  // Length of side CA
-    double s = (side1 + side2 + side3) / 2;  // Semi-perimeter
-    return sqrt(s * (s - side1) * (s - side2) * (s - side3));  // Heron's formula
+// Function to calculate the circumference of a circle
+double calculateCircumference(Circle c) {
+    double circumference = 2 * M_PI * c.radius;
+    return circumference;
 }
 
 int main() {
-    Triangle t;
+    Circle c;
 
-    // Input: coordinates of the three triangle vertices
-    printf("Enter coordinates of point A (x y): ");
-    scanf("%lf %lf", &t.p1.x, &t.p1.y);
+    // Prompt user for input
+    printf("Enter the x-coordinate of the circle's center: ");
+    scanf("%lf", &c.center.x);
+    printf("Enter the y-coordinate of the circle's center: ");
+    scanf("%lf", &c.center.y);
+    printf("Enter the radius of the circle: ");
+    scanf("%lf", &c.radius);
 
-    printf("Enter coordinates of point B (x y): ");
-    scanf("%lf %lf", &t.p2.x, &t.p2.y);
+    // Validate the radius
+    if (c.radius < 0) {
+        printf("Radius cannot be negative.\n");
+        return 1;
+    }
 
-    printf("Enter coordinates of point C (x y): ");
-    scanf("%lf %lf", &t.p3.x, &t.p3.y);
+    // Calculate area and circumference
+    double area = calculateArea(c);
+    double circumference = calculateCircumference(c);
 
-    // Calculate and print the area
-    double area = calculate_area(t);
-    printf("Area of the triangle: %.2f\n", area);
+    // Display the results
+    printf("Circle's center: (%.2f, %.2f)\n", c.center.x, c.center.y);
+    printf("Circle's radius: %.2f\n", c.radius);
+    printf("Circle's area: %.2f\n", area);
+    printf("Circle's circumference: %.2f\n", circumference);
 
     return 0;
 }
