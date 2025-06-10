@@ -3,7 +3,7 @@
 int main()
 {
     char *fruits[] = {
-        "apple",
+        "apple", // fruits[0]은 "apple"이라는 문자열의 주소를 가리키고 있음.
         "banana",
         "grape"
     };
