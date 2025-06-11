@@ -25,7 +25,7 @@ int main()
         printf("x = %d\n", x);
         x = 40;
     } // 3 x = 30
-    printf("x = %d\n", x); // 4 x = 10
+    printf("x = %d\n", x); // 4 x = 60 (틀림)
     
     return 0;
 }
