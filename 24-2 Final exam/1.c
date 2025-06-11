@@ -16,6 +16,6 @@ int main(void) {
     int** doublePtr = &ptr;
     printf("value = %d, ptr = %p, doublePtr = %p\n", value, ptr, doublePtr); // 5 value = 42, ptr = 000000D2C44FF7D8, doublePtr = 000000D2C44FF7D8
     updateValue(doublePtr);
-    printf("value = %d, ptr = %p, doublePtr = %p\n", value, ptr, doublePtr); // 6 value = 100, ptr = 000000D2C44FF7D8, doublePtr = 000000D2C44FF7D8; 
+    printf("value = %d, ptr = %p, doublePtr = %p\n", value, ptr, doublePtr); // 6 value = 100, ptr = 000000D2C44FF7D8, doublePtr = 000000D2C44FF7D8 (틀림)
     return 0;
 }
