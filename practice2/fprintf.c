@@ -34,11 +34,13 @@ int main()
         fprintf(stderr, "Can't open the score file %s\n", fname);
         exit(1);
     }
-    while (!feof(fp))
-    {
-        fscanf(fp, "%d %s %lf", &number, name, &score);
-        total += score;
-        count ++;
+    while (1) {
+    printf("Enter student number, name and score (end input with negative number): ");
+    if (scanf("%d %s %lf", &number, name, &score) != 3)
+        break;
+    if (number < 0)
+        break;
+    fprintf(fp, "%d %s %lf\n", number, name, score);
     }
 
     printf("Average: %lf", total / count);
